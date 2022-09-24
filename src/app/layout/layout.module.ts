@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { ContentComponent } from "./components/content/content.component";
 import { LayoutComponent } from "./layout.component";
+import { LayoutRoutingModule } from "./modules/routing/layout-routing.module";
 
 @NgModule({
     declarations: [
@@ -11,12 +12,7 @@ import { LayoutComponent } from "./layout.component";
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: LayoutComponent
-            }
-        ])
+        LayoutRoutingModule
     ],
     exports: []
 })

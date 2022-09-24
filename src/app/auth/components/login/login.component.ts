@@ -1,5 +1,9 @@
 import { Component, DoCheck, OnChanges, SimpleChanges } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { HotToastService } from "@ngneat/hot-toast";
+import { AuthService } from "src/app/services/Auth/auth.service";
+import { UserService } from "src/app/services/user/user.service";
 
 @Component({
     selector: 'auth-login',
@@ -12,7 +16,12 @@ export class LoginComponent implements DoCheck {
     showPassword: boolean = false;
     phoneLogin: boolean = false;
 
-    constructor() { }
+    constructor(
+        private authService: AuthService,
+        private router: Router,
+        private toast: HotToastService,
+        private userService: UserService
+    ) { }
     ngDoCheck(): void {
         if (this.phoneLogin) {
             console.log('htosdf');
@@ -25,7 +34,7 @@ export class LoginComponent implements DoCheck {
         }
     }
 
-    loginForm = new FormGroup({
+    loginForm = new FormGroup<any>({
         'email': new FormControl('', [Validators.required]),
         'password': new FormControl('', Validators.required)
     });
@@ -39,6 +48,15 @@ export class LoginComponent implements DoCheck {
     }
 
     onSubmit = () => {
-        console.log(this.loginForm)
+        let { email, password } = this.loginForm.value;
+        this.authService.login(email, password).pipe(
+            this.toast.observe({
+                success: 'Logged in successfully!',
+                loading: 'Logging in....',
+                error: 'Invalid Email or password!'
+            })
+        ).subscribe(() => {
+            this.router.navigate(['/dashboard']);
+        })
     }
 }
