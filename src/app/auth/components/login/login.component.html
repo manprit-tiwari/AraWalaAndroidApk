@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
+    <mat-form-field appearance="outline">
+        <mat-label>{{ !phoneLogin ? 'Email': 'Phone No' }}</mat-label>
+        <input [type]="!phoneLogin ? 'email': 'number'" matInput [placeholder]="!phoneLogin ? 'Email' : 'Phone No'"
+            formControlName="email">
+        <mat-error *ngIf="email?.errors?.['required']">{{!phoneLogin? 'Email': 'Phone No'}} is required</mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">Please enter a valid email</mat-error>
+        <mat-error *ngIf="email?.errors?.['maxlength']">Maximum length for phone no is 10</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input [type]="(showPassword)? 'text': 'password'" matInput placeholder="Password" formControlName="password">
+        <mat-icon matSuffix mat-icon-button (click)="showPassword = !showPassword">
+            {{showPassword ? 'visibility': 'visibility_off'}}
+        </mat-icon>
+        <mat-error>Password is required</mat-error>
+    </mat-form-field>
+    <div class="form-action">
+        <button mat-raised-button type="submit" color="primary">Login</button>
+    </div>
+    <!-- Comment is if you want to add both Email and phone Login -->
+    <!-- <div class="form-section">
+        <div></div>
+        <h5>OR</h5>
+        <div></div>
+    </div> -->
+    <!-- <div class="form-action">
+        <button mat-raised-button type="button" color="primary" (click)="phoneLogin = !phoneLogin">
+            {{!phoneLogin ? 'Login with Phone' : 'Login with Email'}}
+        </button>
+    </div> -->
+    <div class="form-link">
+        <h5>New to this platform? <a routerLink="/auth/register">Sign Up</a></h5>
+    </div>
+</form>

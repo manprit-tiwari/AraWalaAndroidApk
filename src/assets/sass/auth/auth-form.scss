@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .form-action {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: inherit;
+
+        button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .form-link {
+        width: inherit;
+        text-align: center;
+
+        a {
+            color: blue;
+        }
+    }
+
+    .form-error {
+        width: 100%;
+        font-size: 13px;
+        margin-top: -1.2rem;
+        margin-bottom: 1rem;
+    }
+
+}

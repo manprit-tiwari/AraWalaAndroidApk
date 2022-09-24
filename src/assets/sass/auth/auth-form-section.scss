@@ -1,0 +1,15 @@
+.form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+
+    div {
+        border: 1px solid black;
+        width: inherit;
+    }
+
+    h5 {
+        padding-inline: 1rem;
+    }
+}
