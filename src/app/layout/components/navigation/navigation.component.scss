@@ -2,10 +2,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 0.3rem 0;
+    box-shadow: 3px 3px 10px 10px rgb(0 0 0 / 10%);
 
     .icon {
         object-fit: cover;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 2.5rem;
@@ -13,6 +16,42 @@
         img {
             width: 100%;
         }
+
+        figcaption {
+            font-size: 0.7rem;
+        }
     }
 
+}
+
+#home {
+    content: url('../../../../assets/icons/home.png');
+
+    &.active {
+        content: url('../../../../assets/icons/home-fill.png');
+    }
+}
+
+#course {
+    content: url('../../../../assets/icons/course.png');
+
+    &.active {
+        content: url('../../../../assets/icons/course-fill.png');
+    }
+}
+
+#quiz {
+    content: url('../../../../assets/icons/quiz.png');
+
+    &.active {
+        content: url('../../../../assets/icons/quiz-fill.png');
+    }
+}
+
+#profile {
+    content: url('../../../../assets/icons/profile.png');
+
+    &.active {
+        content: url('../../../../assets/icons/profile-fill.png');
+    }
 }

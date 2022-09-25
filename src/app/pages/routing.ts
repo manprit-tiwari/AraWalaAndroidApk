@@ -23,6 +23,12 @@ const Routing: Routes = [
         loadChildren: () => {
             return import('./quiz/quiz.module').then((m) => m.QuizModule);
         }
+    },
+    {
+        path: 'course',
+        loadChildren: () => {
+            return import('./course/course.module').then((m) => m.CourseModule);
+        }
     }
 ];
 

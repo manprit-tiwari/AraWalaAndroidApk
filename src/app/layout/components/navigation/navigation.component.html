@@ -1,14 +1,18 @@
 <div class="container">
-    <div class="icon" routerLink="/dashboard">
-        <img [src]="homeIcon">
+    <div class="icon">
+        <img id="home" routerLink="/dashboard" routerLinkActive="active">
+        <figcaption>Home</figcaption>
     </div>
-    <div class="icon" routerLink="/course">
-        <img [src]="courseIcon">
+    <div class="icon">
+        <img id="course" routerLink="/course" routerLinkActive="active">
+        <figcaption>Course</figcaption>
     </div>
-    <div class="icon" routerLink="/quiz">
-        <img [src]="quizIcon">
+    <div class="icon">
+        <img id="quiz" routerLink="/quiz" routerLinkActive="active">
+        <figcaption>Quiz</figcaption>
     </div>
-    <div class="icon" routerLink="/profile">
-        <img [src]="profileIcon">
+    <div class="icon">
+        <img id="profile" routerLink="/profile" routerLinkActive="active">
+        <figcaption>Profile</figcaption>
     </div>
 </div>
