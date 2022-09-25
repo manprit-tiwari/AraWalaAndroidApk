@@ -9,13 +9,6 @@ import { AuthService } from "src/app/services/Auth/auth.service";
 })
 export class DashboardComponent {
 
-    constructor(
-        private authService: AuthService,
-        private router: Router
-    ) { }
-    logout = () => {
-        this.authService.logout().subscribe(() => {
-            this.router.navigate(['/auth/login']);
-        })
-    }
+    constructor() { }
+
 }

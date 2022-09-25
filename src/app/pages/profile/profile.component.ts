@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { HotToastService } from "@ngneat/hot-toast";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { concatMap } from "rxjs";
@@ -28,7 +29,8 @@ export class ProfileComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private userService: UserService,
-        private toast: HotToastService
+        private toast: HotToastService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -75,6 +77,12 @@ export class ProfileComponent implements OnInit {
         this.profileForm.enable();
         this.profileForm.get('email')?.disable();
         this.editMode = true;
+    }
+
+    logout = () => {
+        this.authService.logout().subscribe(() => {
+            this.router.navigate(['/auth/login']);
+        })
     }
 
 }

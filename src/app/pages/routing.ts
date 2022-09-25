@@ -17,6 +17,12 @@ const Routing: Routes = [
         loadChildren: () => {
             return import('./profile/profile.module').then((m) => m.ProfileModule);
         }
+    },
+    {
+        path: 'quiz',
+        loadChildren: () => {
+            return import('./quiz/quiz.module').then((m) => m.QuizModule);
+        }
     }
 ];
 
