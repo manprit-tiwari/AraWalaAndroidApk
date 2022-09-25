@@ -39,7 +39,7 @@
         <mat-error *ngIf="registerForm.errors?.['passwordDontMatch']">Password should match</mat-error>
     </div>
     <div class="form-action">
-        <button type="submit" mat-raised-button color="primary">Register</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">Register</button>
     </div>
     <div class="form-link">
         <h5>Already have an account? <a routerLink="/auth/login">LogIn</a></h5>

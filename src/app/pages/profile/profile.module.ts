@@ -1,5 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ProfileMaterialModule } from "./modules/material/profile-material.module";
 import { ProfileRoutingModule } from "./modules/routing/profile-routing.module";
 import { ProfileComponent } from "./profile.component";
 
@@ -9,7 +11,9 @@ import { ProfileComponent } from "./profile.component";
     ],
     imports: [
         CommonModule,
-        ProfileRoutingModule
+        ProfileRoutingModule,
+        ProfileMaterialModule,
+        ReactiveFormsModule
     ],
     exports: []
 })

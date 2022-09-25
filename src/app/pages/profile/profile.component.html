@@ -1,1 +1,41 @@
-<h1>Profile Component</h1>
+<div class="container" *ngIf="user$ | async as user">
+    <div class="title">
+        <h1>User Profile</h1>
+        <button mat-icon-button [matMenuTriggerFor]="profileActionMenu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <div class="profile-image">
+        <img [src]="user.photoURL || 'assets/images/Profile-placeholder.png'">
+        <button type="button" mat-mini-fab color="primary" (click)="imageField.click()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+    <input type="file" hidden (change)="uploadImage($event,user)" #imageField>
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" placeholder="Name" matInput formControlName="displayName">
+            <mat-error>Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" placeholder="Email" matInput formControlName="email">
+            <mat-error>Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone No</mat-label>
+            <input type="text" placeholder="Phone No" matInput formControlName="phoneNo">
+            <mat-error>Phone No is required</mat-error>
+        </mat-form-field>
+        <div class="form-action" *ngIf="editMode">
+            <button type="submit" mat-raised-button color="primary" [disabled]="profileForm.invalid">Update
+                Profile</button>
+        </div>
+    </form>
+</div>
+
+<mat-menu #profileActionMenu>
+    <button mat-menu-item (click)="enableEditMode()">Edit Details</button>
+    <button mat-menu-item>Logout</button>
+</mat-menu>

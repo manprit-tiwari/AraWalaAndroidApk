@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    padding: 1rem 2rem;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .profile-image {
+        img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+
+        button {
+            position: relative;
+            bottom: 10px;
+            right: 40px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        mat-form-field {
+            width: 100%;
+        }
+
+        .form-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: inherit;
+
+            button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

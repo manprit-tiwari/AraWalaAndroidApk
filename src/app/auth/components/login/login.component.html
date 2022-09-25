@@ -17,7 +17,7 @@
         <mat-error>Password is required</mat-error>
     </mat-form-field>
     <div class="form-action">
-        <button mat-raised-button type="submit" color="primary">Login</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
     </div>
     <!-- Comment is if you want to add both Email and phone Login -->
     <!-- <div class="form-section">

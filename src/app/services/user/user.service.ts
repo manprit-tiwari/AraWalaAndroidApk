@@ -12,7 +12,6 @@ import { AuthService } from "../Auth/auth.service";
 export class UserService {
 
     profileData: userData[] = [];
-    currentUser$ = authState(this.auth);
 
     constructor(
         private auth: Auth,
@@ -36,7 +35,7 @@ export class UserService {
     }
 
     get currentUserProfile$(): Observable<userData | null> {
-        return this.currentUser$.pipe(
+        return this.authService.currentUser$.pipe(
             switchMap((user) => {
                 if (!user?.uid) {
                     return of(null);
@@ -50,12 +49,12 @@ export class UserService {
     }
 
     addUser = (user: userData): Observable<any> => {
-        let ref = doc(this.firestore, 'user', user?.uid);
+        let ref = doc(this.firestore, 'users', user?.uid);
         return from(setDoc(ref, user));
     }
 
     updateUser = (user: userData): Observable<any> => {
-        let ref = doc(this.firestore, 'user', user?.uid);
+        let ref = doc(this.firestore, 'users', user?.uid);
         return from(updateDoc(ref, { ...user }));
     }
 
