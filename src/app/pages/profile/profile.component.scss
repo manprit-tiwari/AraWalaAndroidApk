@@ -53,5 +53,9 @@
                 text-align: center;
             }
         }
+
+        .form-action+.form-action {
+            margin-top: 1rem;
+        }
     }
 }

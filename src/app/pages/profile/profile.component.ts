@@ -85,4 +85,9 @@ export class ProfileComponent implements OnInit {
         })
     }
 
+    cancelUpdate = () => {
+        this.profileForm.disable();
+        this.editMode = false;
+    }
+
 }
