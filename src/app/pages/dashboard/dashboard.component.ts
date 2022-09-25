@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/Auth/auth.service";
+import { UserService } from "src/app/services/user/user.service";
 
 @Component({
     selector: 'pages-dashboard',
@@ -9,6 +10,8 @@ import { AuthService } from "src/app/services/Auth/auth.service";
 })
 export class DashboardComponent {
 
-    constructor() { }
+    user$ = this.userService.currentUserProfile$;
+
+    constructor(private userService: UserService) { }
 
 }

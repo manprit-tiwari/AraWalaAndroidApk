@@ -1,1 +1,5 @@
-<h1>Welcome to Dashboard!</h1>
+<div class="container">
+    <h1 *ngIf="user$ | async as user">
+        Hi, {{user.displayName}}!
+    </h1>
+</div>
