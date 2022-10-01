@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="title">
+        <h1>Sub-Categories</h1>
+        <button type="button" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <div class="main-content">
+        <ng-container *ngIf="subCategories.length > 0; else noSubCategoryMessage">
+            <ng-container *ngFor="let category of subCategories">
+                <div class="course-sub-category-card" routerLink="/course/course-vedio-list">
+                    <h3>{{category}}</h3>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #noSubCategoryMessage>
+            <h3>No Sub-Category Available!</h3>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="title">
+        <h1>Categories</h1>
+        <button type="button" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <div class="main-content">
+        <ng-container *ngIf="courseCategories.length > 0; else noCourseMessage">
+            <ng-container *ngFor="let category of courseCategories">
+                <div class="course-category-card" routerLink="/course/sub-categories">
+                    <h3>{{category}}</h3>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #noCourseMessage>
+            <h3>No Course Available!</h3>
+        </ng-template>
+    </div>
+</div>

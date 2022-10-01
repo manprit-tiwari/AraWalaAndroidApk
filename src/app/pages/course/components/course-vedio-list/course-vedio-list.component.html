@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="title">
+        <h1>vedios</h1>
+        <button type="button" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <div class="main-content">
+        <ng-container *ngIf="courseVedioList.length > 0; else noVedioListMessage">
+            <ng-container *ngFor="let vedio of courseVedioList">
+                <div class="vedio-list-card">
+                    <div class="thumbnail">
+                        <img [src]="vedio.thumbnailPath">
+                    </div>
+                    <div class="details">
+                        <h3>{{vedio.name}}</h3>
+                        <p>{{vedio.description}}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-template #noVedioListMessage></ng-template>
+    </div>
+</div>
