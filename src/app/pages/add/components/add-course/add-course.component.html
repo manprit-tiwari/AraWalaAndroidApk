@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="title">
+        <h1>Add Course</h1>
+    </div>
+    <div class="uploads">
+        <div class="fields">
+            <div class="circle" (click)="thumbnail.click()">
+                <mat-icon>add</mat-icon>
+            </div>
+            <p>Vedio</p>
+        </div>
+        <div class="fields">
+            <div class="circle" (click)="vedio.click()">
+                <mat-icon>add</mat-icon>
+            </div>
+            <p>Thumbnail</p>
+        </div>
+    </div>
+    <input type="file" (change)="onThumbnailChange($event)" hidden #thumbnail>
+    <input type="file" (change)="onVedioChange($event)" hidden #vedio>
+    <form [formGroup]="addCourseForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input type="text" matInput placeholder="Title" formControlName="title">
+            <mat-error>Title is required</mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Course Thumbnail</mat-label>
+            <input type="file" formControlName="thumbnail">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Vedio</mat-label>
+            <input type="file" formControlName="vedio">
+        </mat-form-field> -->
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" cols="30" rows="5"></textarea>
+            <mat-error>Description is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value="defence">Defence</mat-option>
+                <mat-option value="nda">NDA</mat-option>
+                <mat-option value="army">Army</mat-option>
+            </mat-select>
+            <mat-error>Category is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Sub-Category</mat-label>
+            <mat-select formControlName="sub-category">
+                <mat-option value="navy">Navy</mat-option>
+                <mat-option value="airForce">Air Force</mat-option>
+                <mat-option value="millitary">Millitary</mat-option>
+            </mat-select>
+            <mat-error>Sub-Category is required</mat-error>
+        </mat-form-field>
+        <div class="form-action">
+            <button mat-raised-button type="submit" color="primary" [disabled]="addCourseForm.invalid">
+                Add Course
+            </button>
+            <button mat-raised-button type="reset" color="warn">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>

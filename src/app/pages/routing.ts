@@ -29,6 +29,12 @@ const Routing: Routes = [
         loadChildren: () => {
             return import('./course/course.module').then((m) => m.CourseModule);
         }
+    },
+    {
+        path: 'add',
+        loadChildren: () => {
+            return import('./add/add.module').then((m) => m.AddModule);
+        }
     }
 ];
 

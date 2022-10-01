@@ -55,3 +55,11 @@
         content: url('../../../../assets/icons/profile-fill.png');
     }
 }
+
+#add {
+    content: url('../../../../assets/icons/add.png');
+
+    &.active {
+        content: url('../../../../assets/icons/add-fill.png');
+    }
+}

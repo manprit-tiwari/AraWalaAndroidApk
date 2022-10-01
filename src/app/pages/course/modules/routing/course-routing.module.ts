@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseCategoryComponent } from '../../components/category/category.component';
 import { CourseVedioListComponent } from '../../components/course-vedio-list/course-vedio-list.component';
+import { CourseVedioComponent } from '../../components/course-vedio/course-vedio.component';
 import { CourseSubCategoryComponent } from '../../components/sub-category/sub-category.component';
 import { CourseComponent } from '../../course.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
             {
                 path: 'course-vedio-list',
                 component: CourseVedioListComponent
+            },
+            {
+                path: 'course-vedio',
+                component: CourseVedioComponent
             }
         ]
     }

@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    padding: 0rem 1rem;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .uploads {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+        .fields {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .circle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 4rem;
+                height: 4rem;
+                background-color: rgba(0, 0, 0, 0.4);
+                border-radius: 100%;
+
+                &:active {
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+            }
+        }
+
+        .fields+.fields {
+            margin-left: 1rem;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        mat-form-field {
+            width: 100%;
+        }
+
+        .form-action {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: inherit;
+
+            button {
+                width: 100%;
+                text-align: center;
+            }
+
+            button+button {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
