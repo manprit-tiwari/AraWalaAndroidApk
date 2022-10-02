@@ -1,15 +1,20 @@
 @import '../../assets/sass/_variable.scss';
 
-.container {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
-    overflow: scroll;
-    height: calc(100vh - $navigation-bar__height);
 
-}
+    .container {
+        overflow: scroll;
+        margin-bottom: 4rem;
+    }
 
-layout-navigation {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: $navigation-bar__height;
+    layout-navigation {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+    }
 }

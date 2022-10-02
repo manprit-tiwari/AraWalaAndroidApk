@@ -6,7 +6,25 @@
         </button>
     </div>
     <div class="main-content">
-        <ng-container *ngIf="courseCategories.length > 0; else noCourseMessage">
+        <ng-container *ngIf="courseCategories.length > 0">
+            <ng-container *ngFor="let category of courseCategories">
+                <div class="course-category-card">
+                    <div class="cover-image">
+                        <img [src]="category.thumbnail">
+                    </div>
+                    <div class="details">
+                        <div class="title">
+                            <h3>{{category.name}}</h3>
+                            <p>{{category.subCategoryNumber}} sub-categories</p>
+                        </div>
+                        <div class="discription">
+                            <p>{{category.discription}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        <!-- <ng-container *ngIf="courseCategories.length > 0; else noCourseMessage">
             <ng-container *ngFor="let category of courseCategories">
                 <div class="course-category-card" routerLink="/course/sub-categories">
                     <h3>{{category}}</h3>
@@ -15,6 +33,6 @@
         </ng-container>
         <ng-template #noCourseMessage>
             <h3>No Course Available!</h3>
-        </ng-template>
+        </ng-template> -->
     </div>
 </div>
