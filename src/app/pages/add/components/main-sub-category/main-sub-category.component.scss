@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: inherit;
+
+    .title {
+        width: 100%;
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        h4 {
+            margin-top: 0;
+        }
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        .cards {
+            padding: 2rem 0;
+            width: 100%;
+            background-color: aqua;
+            border-radius: 0.3rem;
+            text-align: center;
+
+            &:before {
+                content: '';
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .cards+.cards {
+            margin-top: 1rem;
+        }
+    }
+}

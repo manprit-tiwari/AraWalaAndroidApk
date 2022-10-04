@@ -1,5 +1,15 @@
 <div class="container">
-    <h1 *ngIf="user$ | async as user">
-        Hi, {{user.displayName}}!
-    </h1>
+    <div class="title">
+        <h2>Hello,</h2>
+        <ng-container *ngIf="user$ | async as user">
+            <h1>{{user.displayName}} 👋</h1>
+        </ng-container>
+    </div>
+    <div class="main-content">
+        <h3>Treanding</h3>
+        <div class="treanding-card" matRipple>
+            <h3>Treanding News</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, eum.</p>
+        </div>
+    </div>
 </div>

@@ -8,7 +8,7 @@
     <div class="main-content">
         <ng-container *ngIf="courseCategories.length > 0">
             <ng-container *ngFor="let category of courseCategories">
-                <div class="course-category-card">
+                <div class="course-category-card" routerLink="/course/sub-categories">
                     <div class="cover-image">
                         <img [src]="category.thumbnail">
                     </div>

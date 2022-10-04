@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="title">
+        <h1>Hi!..</h1>
+        <h4>What would you like to add in course</h4>
+    </div>
+    <div class="main-content">
+        <ng-container *ngFor="let Category of categoryList">
+            <ng-container *ngIf="Category.name === category">
+                <ng-container *ngFor="let subCategory of Category.subCategory">
+                    <div class="cards" [routerLink]="['/add',subCategory.toLowerCase().replace(' ','-')]">
+                        <div class="card-content">
+                            <h3>{{subCategory}}</h3>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

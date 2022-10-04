@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+
+    .title {
+        width: 100%;
+
+        h2 {
+            margin-bottom: 0;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 2.5rem;
+        }
+    }
+
+    .main-content {
+        .treanding-card {
+            background: url('../../../assets/images/background-pattern.svg') no-repeat, linear-gradient(to bottom right, #ff8f70, #ff3d54);
+            background-position: 35% 40%;
+            color: #fff;
+            padding: 4rem 1rem 0.1rem;
+            border-radius: 0.3rem;
+        }
+    }
+}

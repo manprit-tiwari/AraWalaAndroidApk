@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { HotToastService } from "@ngneat/hot-toast";
+import { UserService } from "src/app/services/user/user.service";
+import { AddCourseService } from "../../service/add-course/add-course.service";
 
 @Component({
     selector: 'add-course',
@@ -12,6 +15,12 @@ export class AddCourseComponent {
     courseVedio!: File;
     previewVedio!: any;
 
+    constructor(
+        private userService: UserService,
+        private addCourseService: AddCourseService,
+        private toast: HotToastService
+    ) { }
+
     addCourseForm = new FormGroup<any>({
         'title': new FormControl('', Validators.required),
         'description': new FormControl('', Validators.required),
@@ -21,7 +30,6 @@ export class AddCourseComponent {
 
     onThumbnailChange = (event: any) => {
         this.courseThumbnail = event.target.files[0];
-        console.log(this.courseThumbnail);
     }
 
     onVedioChange = (event: any) => {
@@ -42,7 +50,42 @@ export class AddCourseComponent {
 
     onSubmit = () => {
         let formData = this.appendFormData();
-        console.log('FormData::', formData);
-        console.log('FormValues::', this.addCourseForm.value);
+        // console.log('FormData::', formData);
+        // console.log('FormValues::', this.addCourseForm.value);
+        this.addCourseService.addCourse(this.addCourseForm.value).pipe(
+            this.toast.observe(
+                {
+                    success: 'Couser Info Added Successfully!',
+                    loading: 'adding Course...',
+                    error: ({ error }) => `${error.message}`
+                }
+            )
+        ).subscribe((result) => {
+            let courseInfo: any = { id: result.id };
+            this.addCourseService.uploadCourseThumbnail(this.courseThumbnail, `courses/thumbnail/${courseInfo.id}`).pipe(
+                this.toast.observe(
+                    {
+                        success: 'Thumbnail uploaded Successfully',
+                        loading: 'Uploading Thumbnail...',
+                        error: ({ error }) => `${error.message}`
+                    }
+                )
+            ).subscribe((result) => {
+                courseInfo = { ...courseInfo, thumbnailURL: result }
+                // this.addCourseService.updateCourse(courseInfo)
+                this.addCourseService.uploadCourseVedio(this.courseVedio, `courses/vedios/${courseInfo.id}`).pipe(
+                    this.toast.observe(
+                        {
+                            success: 'Vedio uploaded Successfully',
+                            loading: 'Uploading Vedio...',
+                            error: ({ error }) => `${error.message}`
+                        }
+                    )
+                ).subscribe((result) => {
+                    courseInfo = { ...courseInfo, vedioURL: result }
+                    this.addCourseService.updateCourse(courseInfo).subscribe();
+                });
+            })
+        })
     }
 }
