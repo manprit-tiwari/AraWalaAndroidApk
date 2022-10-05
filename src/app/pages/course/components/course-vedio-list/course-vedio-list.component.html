@@ -1,10 +1,12 @@
-<div class="container">
+<div class="title-container">
     <div class="title">
         <h1>vedios</h1>
         <button type="button" mat-icon-button>
             <mat-icon>more_vert</mat-icon>
         </button>
     </div>
+</div>
+<div class="container">
     <div class="main-content">
         <ng-container *ngIf="courseVedioList.length > 0; else noVedioListMessage">
             <ng-container *ngFor="let vedio of courseVedioList">
@@ -19,6 +21,8 @@
                 </div>
             </ng-container>
         </ng-container>
-        <ng-template #noVedioListMessage></ng-template>
+        <ng-template #noVedioListMessage>
+            <h3>No Vedio Available</h3>
+        </ng-template>
     </div>
 </div>
