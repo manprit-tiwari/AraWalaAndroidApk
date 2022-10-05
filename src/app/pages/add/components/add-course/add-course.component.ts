@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component } from "@angular/core";
+import { getDownloadURL, ref, Storage, uploadBytesResumable } from "@angular/fire/storage";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { HotToastService } from "@ngneat/hot-toast";
 import { UserService } from "src/app/services/user/user.service";
@@ -14,11 +15,15 @@ export class AddCourseComponent {
     courseThumbnail!: File;
     courseVedio!: File;
     previewVedio!: any;
+    UploadingVedio: boolean = false;
+    UploadingProgress: number = 0;
 
     constructor(
         private userService: UserService,
         private addCourseService: AddCourseService,
-        private toast: HotToastService
+        private toast: HotToastService,
+        private storage: Storage,
+        private cd: ChangeDetectorRef
     ) { }
 
     addCourseForm = new FormGroup<any>({
@@ -71,21 +76,30 @@ export class AddCourseComponent {
                     }
                 )
             ).subscribe((result) => {
-                courseInfo = { ...courseInfo, thumbnailURL: result }
-                // this.addCourseService.updateCourse(courseInfo)
-                this.addCourseService.uploadCourseVedio(this.courseVedio, `courses/vedios/${courseInfo.id}`).pipe(
-                    this.toast.observe(
-                        {
-                            success: 'Vedio uploaded Successfully',
-                            loading: 'Uploading Vedio...',
-                            error: ({ error }) => `${error.message}`
-                        }
-                    )
-                ).subscribe((result) => {
-                    courseInfo = { ...courseInfo, vedioURL: result }
-                    this.addCourseService.updateCourse(courseInfo).subscribe();
-                });
-            })
-        })
+                courseInfo = { ...courseInfo, thumbnailURL: result };
+                let storageRef = ref(this.storage, `courses/vedios/${courseInfo.id}`);
+                let uploadTask = uploadBytesResumable(storageRef, this.courseVedio);
+                this.UploadingVedio = true;
+                uploadTask.on('state_changed', (snapshot) => {
+                    this.UploadingProgress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    this.toast.loading('Uploading Vedio...', { id: 'vedioUploading' });
+                }, () => {
+                    this.toast.error('Error while uploadin Vedio');
+                }, () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((result) => {
+                        courseInfo = { ...courseInfo, vedioURL: result };
+                        this.addCourseService.updateCourse(courseInfo).subscribe(() => {
+                            this.UploadingVedio = false;
+                            this.toast.close('vedioUploading');
+                            this.toast.success('Vedio uploaded Successfully');
+                        });
+                    }).catch(() => {
+                        this.UploadingVedio = false;
+                        this.toast.close('vedioUploading');
+                        this.toast.error('Error while uploading course');
+                    })
+                })
+            });
+        });
     }
 }

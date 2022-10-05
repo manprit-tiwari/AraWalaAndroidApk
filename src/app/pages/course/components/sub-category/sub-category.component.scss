@@ -1,3 +1,5 @@
+@import '../../../../../assets/sass/course/title.scss';
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -25,13 +27,79 @@
             margin-top: 0;
         }
 
-        .course-sub-category-card {
-            width: inherit;
-            background-color: red;
-            border-radius: 0.3rem;
+        // .course-sub-category-card {
+        //     width: inherit;
+        //     background-color: red;
+        //     border-radius: 0.3rem;
 
-            h3 {
-                padding: 1rem;
+        //     h3 {
+        //         padding: 1rem;
+        //     }
+        // }
+
+        .course-sub-category-card {
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            padding: 1rem;
+            background-color: antiquewhite;
+            border-radius: 0.2rem;
+
+            .row-1 {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+
+                .image {
+                    width: 8rem;
+                    height: 5rem;
+                    overflow: hidden;
+                    border-radius: 0.4rem;
+                    display: flex;
+                    justify-content: center;
+
+
+                    img {
+                        object-fit: cover;
+                        width: inherit;
+                    }
+                }
+
+                .title {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: inherit;
+                    padding-inline-start: 1rem;
+
+                    h3,
+                    p {
+                        margin-block-start: 0;
+                        margin-block-end: 0;
+                    }
+
+                    h3+p {
+                        margin-block-start: 0.5rem;
+                    }
+                }
+            }
+
+            .row-2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
+                }
             }
         }
 

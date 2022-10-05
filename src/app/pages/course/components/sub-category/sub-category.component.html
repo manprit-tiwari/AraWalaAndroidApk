@@ -1,12 +1,29 @@
-<div class="container">
+<div class="title-container">
     <div class="title">
         <h1>Sub-Categories</h1>
         <button type="button" mat-icon-button>
             <mat-icon>more_vert</mat-icon>
         </button>
     </div>
+</div>
+<div class="container">
     <div class="main-content">
-        <ng-container *ngIf="subCategories.length > 0; else noSubCategoryMessage">
+        <div class="course-sub-category-card" matRipple>
+            <div class="row-1">
+                <div class="image">
+                    <img src="../../../../../assets/images/defence.jpg" alt="">
+                </div>
+                <div class="title">
+                    <h3>Air Force</h3>
+                    <p>3 Vedios</p>
+                </div>
+            </div>
+            <div class="row-2">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, at necessitatibus. Quod aperiam
+                    facilis ipsam, voluptatem molestias vel aliquam autem?</p>
+            </div>
+        </div>
+        <!-- <ng-container *ngIf="subCategories.length > 0; else noSubCategoryMessage">
             <ng-container *ngFor="let category of subCategories">
                 <div class="course-sub-category-card" routerLink="/course/course-vedio-list">
                     <h3>{{category}}</h3>
@@ -15,6 +32,6 @@
         </ng-container>
         <ng-template #noSubCategoryMessage>
             <h3>No Sub-Category Available!</h3>
-        </ng-template>
+        </ng-template> -->
     </div>
 </div>

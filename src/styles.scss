@@ -49,3 +49,9 @@ body {
 * {
   user-select: none;
 }
+
+.progress-bar {
+  position: fixed !important;
+  top: 0;
+  width: inherit;
+}
