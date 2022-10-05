@@ -4,6 +4,7 @@ import { AddComponent } from "../../add.component";
 import { AddSubCategoryComponent } from "../../components/main-sub-category/main-sub-category.component";
 import { AddCourseComponent } from "../../components/add-course/add-course.component";
 import { AddMainComponent } from "../../components/main/main.component";
+import { AddCourseCategoryComponent } from "../../components/add-course-category/add-course-category.component";
 
 const routes: Routes = [
     {
@@ -21,6 +22,10 @@ const routes: Routes = [
             {
                 path: 'new-course',
                 component: AddCourseComponent
+            },
+            {
+                path: 'new-course-category',
+                component: AddCourseCategoryComponent
             }
         ]
     }

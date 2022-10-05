@@ -1,0 +1,36 @@
+<div class="title-container">
+    <div class="title">
+        <h1>Add Category</h1>
+        <button type="button" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="uploads">
+        <div class="fields">
+            <div class="circle" (click)="image.click()">
+                <mat-icon>add</mat-icon>
+            </div>
+            <p>Image</p>
+        </div>
+    </div>
+    <input type="file" (change)="onImgageChange($event)" hidden #image>
+    <form [formGroup]="courseCategoryForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input type="text" matInput placeholder="Title" formControlName="name">
+            <mat-error>Title is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Discription</mat-label>
+            <textarea matInput formControlName="discription" cols="30" rows="5"></textarea>
+            <mat-error>discription is required</mat-error>
+        </mat-form-field>
+        <div class="form-action">
+            <button type="submit" mat-raised-button color="primary">Add Category</button>
+            <button type="reset" mat-raised-button color="warn">Cancel</button>
+        </div>
+    </form>
+</div>

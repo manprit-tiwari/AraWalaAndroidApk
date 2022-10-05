@@ -10,7 +10,7 @@ export class AddService {
     categories: any[] = [
         {
             name: 'Course',
-            subCategory: ['New Course', 'New Sub-Category', 'New Category']
+            subCategory: ['New Course', 'New Sub-Category', 'New Course-Category']
         },
         {
             name: 'User',

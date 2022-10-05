@@ -7,13 +7,15 @@ import { AddCourseComponent } from "./components/add-course/add-course.component
 import { AddMainComponent } from "./components/main/main.component";
 import { AddMaterialsModule } from "./modules/material/add-material.module";
 import { AddRoutingModule } from "./modules/routing/add-routing.module";
+import { AddCourseCategoryComponent } from "./components/add-course-category/add-course-category.component";
 
 @NgModule({
     declarations: [
         AddComponent,
         AddMainComponent,
         AddCourseComponent,
-        AddSubCategoryComponent
+        AddSubCategoryComponent,
+        AddCourseCategoryComponent
     ],
     imports: [
         CommonModule,
