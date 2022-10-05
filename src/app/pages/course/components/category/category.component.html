@@ -10,14 +10,14 @@
     <div class="main-content">
         <ng-container *ngIf="courseCategories.length > 0">
             <ng-container *ngFor="let category of courseCategories">
-                <div class="course-category-card" routerLink="/course/sub-categories" matRipple>
+                <div class="course-category-card" (click)="categorySelected(category.id)" matRipple>
                     <div class="cover-image">
-                        <img [src]="category.thumbnail">
+                        <img [src]="category.imageURL">
                     </div>
                     <div class="details">
                         <div class="title">
                             <h3>{{category.name}}</h3>
-                            <p>{{category.subCategoryNumber}} sub-categories</p>
+                            <p>{{category.numberOfSubCategory}} sub-categories</p>
                         </div>
                         <div class="discription">
                             <p>{{category.discription}}</p>

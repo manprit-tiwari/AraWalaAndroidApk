@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { AddCategory } from "../../model/add-category.model";
 import { AddService } from "../../service/add.service";
 
 @Component({
@@ -10,7 +9,7 @@ import { AddService } from "../../service/add.service";
 })
 export class AddSubCategoryComponent implements OnInit {
 
-    categoryList: AddCategory[] = this.addService.categories;
+    categoryList: any[] = this.addService.categories;
     category!: string;
 
     constructor(

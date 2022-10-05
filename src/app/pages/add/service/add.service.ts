@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AddCategory } from '../model/add-category.model';
+
 
 
 
@@ -7,7 +7,7 @@ import { AddCategory } from '../model/add-category.model';
     providedIn: 'any'
 })
 export class AddService {
-    categories: AddCategory[] = [
+    categories: any[] = [
         {
             name: 'Course',
             subCategory: ['New Course', 'New Sub-Category', 'New Category']
@@ -20,5 +20,7 @@ export class AddService {
             name: 'Quiz'
         }
     ];
+
+
 
 }

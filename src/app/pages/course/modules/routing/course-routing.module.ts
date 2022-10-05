@@ -21,15 +21,15 @@ const routes: Routes = [
                 component: CourseCategoryComponent
             },
             {
-                path: 'sub-categories',
+                path: 'sub-categories/:id',
                 component: CourseSubCategoryComponent
             },
             {
-                path: 'course-vedio-list',
+                path: 'course-vedio-list/:id',
                 component: CourseVedioListComponent
             },
             {
-                path: 'course-vedio',
+                path: 'course-vedio/:id',
                 component: CourseVedioComponent
             }
         ]
