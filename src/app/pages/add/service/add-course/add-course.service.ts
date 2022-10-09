@@ -6,7 +6,7 @@ import { from, Observable, switchMap } from "rxjs";
 import { UserService } from "src/app/services/user/user.service";
 
 @Injectable({
-    providedIn: 'any'
+    providedIn: 'platform'
 })
 export class AddCourseService {
 

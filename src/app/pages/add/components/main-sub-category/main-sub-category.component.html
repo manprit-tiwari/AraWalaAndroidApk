@@ -7,7 +7,7 @@
         <ng-container *ngFor="let Category of categoryList">
             <ng-container *ngIf="Category.name === category">
                 <ng-container *ngFor="let subCategory of Category.subCategory">
-                    <div class="cards" [routerLink]="['/add',subCategory.toLowerCase().replace(' ','-')]">
+                    <div class="cards" [routerLink]="['/add',subCategory.toLowerCase().split(' ').join('-')]">
                         <div class="card-content">
                             <h3>{{subCategory}}</h3>
                         </div>

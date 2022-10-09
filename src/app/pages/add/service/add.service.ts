@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable({
-    providedIn: 'any'
+    providedIn: 'platform'
 })
 export class AddService {
     categories: any[] = [
         {
             name: 'Course',
-            subCategory: ['New Course', 'New Sub-Category', 'New Course-Category']
+            subCategory: ['New Course', 'New Course Sub Category', 'New Course Category']
         },
         {
             name: 'User',

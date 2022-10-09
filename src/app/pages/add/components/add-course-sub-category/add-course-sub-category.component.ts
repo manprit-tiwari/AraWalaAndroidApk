@@ -37,7 +37,7 @@ export class AddCourseSubCategoryComponent {
             )
         ).subscribe((result) => {
             let subCategoryInfo: any = { id: result.id };
-            this.addCourseSubCategoryService.uploadSubCategoryImage(this.image, `courses/category/${subCategoryInfo.id}`).pipe(
+            this.addCourseSubCategoryService.uploadSubCategoryImage(this.image, `courses/sub-category/${subCategoryInfo.id}`).pipe(
                 this.toast.observe(
                     {
                         success: 'Image Uploaded Successfully',

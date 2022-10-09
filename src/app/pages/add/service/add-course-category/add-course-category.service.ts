@@ -4,7 +4,7 @@ import { getDownloadURL, ref, Storage, uploadBytes } from "@angular/fire/storage
 import { from, Observable, switchMap } from "rxjs";
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'platform'
 })
 export class AddCourseCategoryService {
 
