@@ -8,6 +8,7 @@ import { AddMainComponent } from "./components/main/main.component";
 import { AddMaterialsModule } from "./modules/material/add-material.module";
 import { AddRoutingModule } from "./modules/routing/add-routing.module";
 import { AddCourseCategoryComponent } from "./components/add-course-category/add-course-category.component";
+import { AddCourseSubCategoryComponent } from "./components/add-course-sub-category/add-course-sub-category.component";
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { AddCourseCategoryComponent } from "./components/add-course-category/add
         AddMainComponent,
         AddCourseComponent,
         AddSubCategoryComponent,
-        AddCourseCategoryComponent
+        AddCourseCategoryComponent,
+        AddCourseSubCategoryComponent
     ],
     imports: [
         CommonModule,

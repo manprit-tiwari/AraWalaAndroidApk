@@ -26,17 +26,7 @@ export class AddCourseCategoryComponent {
         this.Image = event?.target?.files[0];
     }
 
-    appendFormData = () => {
-        let formData = new FormData;
-        for (let keys of Object.keys(this.courseCategoryForm.value)) {
-            formData.append(keys, this.courseCategoryForm.value?.[keys])
-        }
-        formData.append('image', this.Image);
-        return formData
-    }
-
     onSubmit = () => {
-        let formData = this.appendFormData();
         this.addCourseCategoryService.addCourseCategory(this.courseCategoryForm.value).pipe(
             this.toast.observe(
                 {
